@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yerin Baek - Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Form Overlay -->
+    <div id="login-overlay" class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="button" id="login-btn">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+
+    <!-- Music Player Section (Initially hidden) -->
+    <div id="music-player" style="display: none;">
+        <div class="banner">
+            <div class="content">
+                <h1><i><b>Every Letter I Sent You.</b></i></h1>
+                <h2 style="font-size: 1.8em; color: #4a235a; text-shadow: 2px 2px #FFD6FF"> 
+                    <b>Immerse yourself in the timeless tunes of Yerin Baek's <i><span style="color: #bb8fce;">Every Letter I Sent You</span></i> album.</b> 
+                </h2>
+                
+                <h2 style="font-size: 1.5em; color: #5e3370;"> 
+                    Listen now and <span style="color: #8e44ad;">rediscover</span> the magic of her iconic melodies.
+                </h2>
+
+                <!-- Album and Song Details -->
+                <div class="container">
+                    <div class="album-info">
+                        <img class="album-cover" src="/pic/Every_letter_I_sent_you_Album_Cover.jpg" alt="Album Cover">
+                        <div class="album-details">
+                            <h2>Album: <b>Every Letter I Sent You.</b></h2>
+                            <h3>2019 • 4 songs • 16 minutes 16 seconds</h3>
+                            <p>Currently Playing: <span id="current-song">None</span></p>
+                        </div>
+                    </div>
+                
+                    <!-- Player Controls -->
+                    <div class="controls">
+                        <button id="prev-btn">Previous</button>
+                        <button id="play-pause-btn">Play</button>
+                        <button id="next-btn">Next</button>
+                    </div>
+
+                    <audio id="audio-player" controls hidden>
+                        <source id="audio-source" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                    <!-- Playlist Section -->
+                    <div class="audio-list">
+                        <div class="audio-column">
+                            <div class="audio-item" onclick="playSong(0)">
+                                <p>Square (2017)</p>
+                            </div>
+                            <div class="audio-item" onclick="playSong(1)">
+                                <p>Popo (How deep is our love)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="audio-column">
+                            <div class="audio-item" onclick="playSong(2)">
+                                <p>Rest</p>
+                            </div>
+                            <div class="audio-item" onclick="playSong(3)">
+                                <p>0310</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function() {
+            // Simulate login validation (you can add more checks here)
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                // Hide the login form and show the music player
+                document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('music-player').style.display = 'block';
+            } else {
+                alert('Please enter both username and password.');
+            }
+        });
+    </script>
+</body>
+</html>
